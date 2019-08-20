@@ -1,0 +1,27 @@
+StataFileTM:00001:01100:GREC:                          :
+00004:00004:00001:
+*! classname: twowaygraph_g
+*! family: twoway
+*! date:  5 Jul 2019
+*! time: 15:54:37
+*! graph_scheme: plotplainblind
+*! naturallywhite: 1
+*! end
+
+// File created by Graph Editor Recorder.
+// Edit only if you know what you are doing.
+
+.plotregion1.plot5.style.editstyle area(linestyle(color(pink))) editcopy
+// plot5 color
+
+// plot5 color
+
+.plotregion1.plot6.style.editstyle marker(fillcolor(pink)) editcopy
+.plotregion1.plot6.style.editstyle marker(linestyle(color(pink))) editcopy
+// plot6 edits
+
+.plotregion1.plot4.style.editstyle area(linestyle(color(pink))) editcopy
+// plot4 color
+
+
+// <end>

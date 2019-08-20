@@ -1,0 +1,280 @@
+StataFileTM:00001:01100:GREC:                          :
+00004:00004:00001:
+*! classname: twowaygraph_g
+*! family: twoway
+*! date: 21 Aug 2019
+*! time: 22:02:12
+*! graph_scheme: plotplainblind
+*! naturallywhite: 1
+*! end
+
+// File created by Graph Editor Recorder.
+// Edit only if you know what you are doing.
+
+.plotregion1.plot3.style.editstyle line(pattern(blank)) editcopy
+// plot3 pattern
+
+// plot3 pattern
+
+.legend.plotregion1.label[4].text = {}
+.legend.plotregion1.label[4].text.Arrpush 95% CI
+// label[4] edits
+
+// label[4] edits
+
+.legend.plotregion1.DragBy 60.70979005388422 -37.15759278250921
+// key region reposition
+
+.xaxis1.style.editstyle majorstyle(use_labels(yes)) editcopy
+// xaxis1 use of labels
+
+.xaxis1.style.editstyle majorstyle(use_labels(no)) editcopy
+// xaxis1 use of labels
+
+.xaxis1.add_ticks 1 `"Baseline"', tickset(minornl)
+// xaxis1 edits
+
+.xaxis1.add_ticks 1 `"Baseline"', tickset(minornl)
+// xaxis1 edits
+
+.xaxis1.add_ticks 2 `"6 months"', tickset(minornl)
+// xaxis1 edits
+
+.plotregion1.AddMarker added_markers editor .9009147629981441 1.000300941611116
+.plotregion1.added_markers_new = 1
+.plotregion1.added_markers_rec = 1
+.plotregion1.added_markers[1].style.editstyle  marker( symbol(circle_hollow) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(large) angle(stdarrow) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(zero) backangle(stdarrow)) line( width(thin) color(black) pattern(solid)) area( linestyle( width(thin) color(white) pattern(solid)) shadestyle( color(white) intensity(inten100) fill(pattern10))) label( textstyle( horizontal(center) vertical(middle) angle(default) size(small) color(black) position() margin(zero) linestyle( width(thin) color(black) pattern(solid))) position(6) textgap(half_tiny) horizontal(default) vertical(default)) dots( symbol(circle) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(vtiny) angle(horizontal) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(small) backangle(horizontal)) connect(direct) connect_missings(yes) editcopy
+// edits
+
+.plotregion1.added_markers[1].style.editstyle marker(symbol(square)) editcopy
+// markers[1] symbol
+
+.plotregion1.AddMarker added_markers editor 1.902339696965201 .5225945848614803
+.plotregion1.added_markers_new = 2
+.plotregion1.added_markers_rec = 2
+.plotregion1.added_markers[2].style.editstyle  marker( symbol(circle_hollow) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(large) angle(stdarrow) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(zero) backangle(stdarrow)) line( width(thin) color(black) pattern(solid)) area( linestyle( width(thin) color(white) pattern(solid)) shadestyle( color(white) intensity(inten100) fill(pattern10))) label( textstyle( horizontal(center) vertical(middle) angle(default) size(small) color(black) position() margin(zero) linestyle( width(thin) color(black) pattern(solid))) position(6) textgap(half_tiny) horizontal(default) vertical(default)) dots( symbol(circle) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(vtiny) angle(horizontal) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(small) backangle(horizontal)) connect(direct) connect_missings(yes) editcopy
+// edits
+
+// addedmarker_proto edits
+
+.plotregion1.AddMarker added_markers editor 1.898531997596506 .5255709484549361
+.plotregion1.added_markers_new = 3
+.plotregion1.added_markers_rec = 3
+.plotregion1.added_markers[3].style.editstyle  marker( symbol(square) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(large) angle(stdarrow) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(zero) backangle(stdarrow)) line( width(thin) color(black) pattern(solid)) area( linestyle( width(thin) color(white) pattern(solid)) shadestyle( color(white) intensity(inten100) fill(pattern10))) label( textstyle( horizontal(center) vertical(middle) angle(default) size(small) color(black) position() margin(zero) linestyle( width(thin) color(black) pattern(solid))) position(6) textgap(half_tiny) horizontal(default) vertical(default)) dots( symbol(circle) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(vtiny) angle(horizontal) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(small) backangle(horizontal)) connect(direct) connect_missings(yes) editcopy
+// edits
+
+.plotregion1.AddMarker added_markers editor 2.899956931563564 .5836100385273216
+.plotregion1.added_markers_new = 4
+.plotregion1.added_markers_rec = 4
+.plotregion1.added_markers[4].style.editstyle  marker( symbol(square) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(large) angle(stdarrow) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(zero) backangle(stdarrow)) line( width(thin) color(black) pattern(solid)) area( linestyle( width(thin) color(white) pattern(solid)) shadestyle( color(white) intensity(inten100) fill(pattern10))) label( textstyle( horizontal(center) vertical(middle) angle(default) size(small) color(black) position() margin(zero) linestyle( width(thin) color(black) pattern(solid))) position(6) textgap(half_tiny) horizontal(default) vertical(default)) dots( symbol(circle) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(vtiny) angle(horizontal) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(small) backangle(horizontal)) connect(direct) connect_missings(yes) editcopy
+// edits
+
+.plotregion1.AddMarker added_markers editor 3.897574166161926 .3082964061326717
+.plotregion1.added_markers_new = 5
+.plotregion1.added_markers_rec = 5
+.plotregion1.added_markers[5].style.editstyle  marker( symbol(square) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(large) angle(stdarrow) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(zero) backangle(stdarrow)) line( width(thin) color(black) pattern(solid)) area( linestyle( width(thin) color(white) pattern(solid)) shadestyle( color(white) intensity(inten100) fill(pattern10))) label( textstyle( horizontal(center) vertical(middle) angle(default) size(small) color(black) position() margin(zero) linestyle( width(thin) color(black) pattern(solid))) position(6) textgap(half_tiny) horizontal(default) vertical(default)) dots( symbol(circle) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(vtiny) angle(horizontal) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(small) backangle(horizontal)) connect(direct) connect_missings(yes) editcopy
+// edits
+
+.plotregion1.added_markers[4].Delete
+// markers[4] edits
+
+.plotregion1.AddMarker added_markers editor 2.899956931563564 .5791454931371379
+.plotregion1.added_markers_new = 6
+.plotregion1.added_markers_rec = 6
+.plotregion1.added_markers[6].style.editstyle  marker( symbol(square) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(large) angle(stdarrow) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(zero) backangle(stdarrow)) line( width(thin) color(black) pattern(solid)) area( linestyle( width(thin) color(white) pattern(solid)) shadestyle( color(white) intensity(inten100) fill(pattern10))) label( textstyle( horizontal(center) vertical(middle) angle(default) size(small) color(black) position() margin(zero) linestyle( width(thin) color(black) pattern(solid))) position(6) textgap(half_tiny) horizontal(default) vertical(default)) dots( symbol(circle) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(vtiny) angle(horizontal) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(small) backangle(horizontal)) connect(direct) connect_missings(yes) editcopy
+// edits
+
+// addedmarker_proto edits
+
+.plotregion1.AddMarker added_markers editor 1.003722645952937 1.000300941611116
+.plotregion1.added_markers_new = 7
+.plotregion1.added_markers_rec = 7
+.plotregion1.added_markers[7].style.editstyle  marker( symbol(circle_hollow) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(large) angle(stdarrow) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(zero) backangle(stdarrow)) line( width(thin) color(black) pattern(solid)) area( linestyle( width(thin) color(white) pattern(solid)) shadestyle( color(white) intensity(inten100) fill(pattern10))) label( textstyle( horizontal(center) vertical(middle) angle(default) size(small) color(black) position() margin(zero) linestyle( width(thin) color(black) pattern(solid))) position(6) textgap(half_tiny) horizontal(default) vertical(default)) dots( symbol(circle) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(vtiny) angle(horizontal) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(small) backangle(horizontal)) connect(direct) connect_missings(yes) editcopy
+// edits
+
+.plotregion1.AddMarker added_markers editor 2.0013398805513 .204123680361723
+.plotregion1.added_markers_new = 8
+.plotregion1.added_markers_rec = 8
+.plotregion1.added_markers[8].style.editstyle  marker( symbol(circle_hollow) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(large) angle(stdarrow) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(zero) backangle(stdarrow)) line( width(thin) color(black) pattern(solid)) area( linestyle( width(thin) color(white) pattern(solid)) shadestyle( color(white) intensity(inten100) fill(pattern10))) label( textstyle( horizontal(center) vertical(middle) angle(default) size(small) color(black) position() margin(zero) linestyle( width(thin) color(black) pattern(solid))) position(6) textgap(half_tiny) horizontal(default) vertical(default)) dots( symbol(circle) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(vtiny) angle(horizontal) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(small) backangle(horizontal)) connect(direct) connect_missings(yes) editcopy
+// edits
+
+.plotregion1.AddMarker added_markers editor 2.998957115149661 .2487691342635582
+.plotregion1.added_markers_new = 9
+.plotregion1.added_markers_rec = 9
+.plotregion1.added_markers[9].style.editstyle  marker( symbol(circle_hollow) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(large) angle(stdarrow) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(zero) backangle(stdarrow)) line( width(thin) color(black) pattern(solid)) area( linestyle( width(thin) color(white) pattern(solid)) shadestyle( color(white) intensity(inten100) fill(pattern10))) label( textstyle( horizontal(center) vertical(middle) angle(default) size(small) color(black) position() margin(zero) linestyle( width(thin) color(black) pattern(solid))) position(6) textgap(half_tiny) horizontal(default) vertical(default)) dots( symbol(circle) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(vtiny) angle(horizontal) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(small) backangle(horizontal)) connect(direct) connect_missings(yes) editcopy
+// edits
+
+.plotregion1.AddMarker added_markers editor 3.996574349748022 .2413282252799189
+.plotregion1.added_markers_new = 10
+.plotregion1.added_markers_rec = 10
+.plotregion1.added_markers[10].style.editstyle  marker( symbol(circle_hollow) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(large) angle(stdarrow) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(zero) backangle(stdarrow)) line( width(thin) color(black) pattern(solid)) area( linestyle( width(thin) color(white) pattern(solid)) shadestyle( color(white) intensity(inten100) fill(pattern10))) label( textstyle( horizontal(center) vertical(middle) angle(default) size(small) color(black) position() margin(zero) linestyle( width(thin) color(black) pattern(solid))) position(6) textgap(half_tiny) horizontal(default) vertical(default)) dots( symbol(circle) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(vtiny) angle(horizontal) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(small) backangle(horizontal)) connect(direct) connect_missings(yes) editcopy
+// edits
+
+// addedmarker_proto edits
+
+.plotregion1.AddMarker added_markers editor 1.098915130170338 .0017309560067371
+.plotregion1.added_markers_new = 11
+.plotregion1.added_markers_rec = 11
+.plotregion1.added_markers[11].style.editstyle  marker( symbol(smdiamond_hollow) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(large) angle(stdarrow) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(zero) backangle(stdarrow)) line( width(thin) color(black) pattern(solid)) area( linestyle( width(thin) color(white) pattern(solid)) shadestyle( color(white) intensity(inten100) fill(pattern10))) label( textstyle( horizontal(center) vertical(middle) angle(default) size(small) color(black) position() margin(zero) linestyle( width(thin) color(black) pattern(solid))) position(6) textgap(half_tiny) horizontal(default) vertical(default)) dots( symbol(circle) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(vtiny) angle(horizontal) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(small) backangle(horizontal)) connect(direct) connect_missings(yes) editcopy
+// edits
+
+.plotregion1.AddMarker added_markers editor 4.095574533334119 .1073918635744135
+.plotregion1.added_markers_new = 12
+.plotregion1.added_markers_rec = 12
+.plotregion1.added_markers[12].style.editstyle  marker( symbol(smdiamond_hollow) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(large) angle(stdarrow) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(zero) backangle(stdarrow)) line( width(thin) color(black) pattern(solid)) area( linestyle( width(thin) color(white) pattern(solid)) shadestyle( color(white) intensity(inten100) fill(pattern10))) label( textstyle( horizontal(center) vertical(middle) angle(default) size(small) color(black) position() margin(zero) linestyle( width(thin) color(black) pattern(solid))) position(6) textgap(half_tiny) horizontal(default) vertical(default)) dots( symbol(circle) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(vtiny) angle(horizontal) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(small) backangle(horizontal)) connect(direct) connect_missings(yes) editcopy
+// edits
+
+.plotregion1.AddMarker added_markers editor 3.992766650379327 .2413282252799189
+.plotregion1.added_markers_new = 13
+.plotregion1.added_markers_rec = 13
+.plotregion1.added_markers[13].style.editstyle  marker( symbol(smdiamond_hollow) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(large) angle(stdarrow) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(zero) backangle(stdarrow)) line( width(thin) color(black) pattern(solid)) area( linestyle( width(thin) color(white) pattern(solid)) shadestyle( color(white) intensity(inten100) fill(pattern10))) label( textstyle( horizontal(center) vertical(middle) angle(default) size(small) color(black) position() margin(zero) linestyle( width(thin) color(black) pattern(solid))) position(6) textgap(half_tiny) horizontal(default) vertical(default)) dots( symbol(circle) linestyle( width(thin) color(black) pattern(solid)) fillcolor(black) size(vtiny) angle(horizontal) backsymbol(none) backline( width(thin) color(black) pattern(solid)) backcolor(black) backsize(small) backangle(horizontal)) connect(direct) connect_missings(yes) editcopy
+// edits
+
+.plotregion1.added_markers[13].DragBy 0 .0076153987373908
+// markers[13] reposition
+
+.style.editstyle margin(zero) editcopy
+// Graph margin
+
+// Graph margin
+
+.plotregion1.added_markers[13].Delete
+// markers[13] edits
+
+.plotregion1.added_markers[10].DragBy 0 .0070982696053368
+// markers[10] reposition
+
+.plotregion1.added_markers[10].DragBy -.0027278184504906 0
+// markers[10] reposition
+
+.plotregion1.added_markers[10].DragBy -.0027278184504906 0
+// markers[10] reposition
+
+.plotregion1.added_markers[10].DragBy .0027278184504906 0
+// markers[10] reposition
+
+.plotregion1.added_markers[12].DragBy 0 .0070982696053368
+// markers[12] reposition
+
+.plotregion1.added_markers[12].DragBy 0 -.0070982696053368
+// markers[12] reposition
+
+.plotregion1.added_markers[12].DragBy 0 .0070982696053368
+// markers[12] reposition
+
+.AddTextBox added_text editor 8.003173830078902 17.60698242617358
+.added_text_new = 1
+.added_text_rec = 1
+.added_text[1].style.editstyle  angle(default) size(medsmall) color(black) horizontal(left) vertical(middle) margin(zero) linegap(zero) drawbox(no) boxmargin(zero) fillcolor(bluishgray) linestyle( width(vthin) color(black) pattern(solid)) box_alignment(east) editcopy
+.added_text[1].text = {}
+.added_text[1].text.Arrpush Basline
+// editor text[1] edits
+
+.AddTextBox added_text editor 6.402539064063123 22.40888672422092
+.added_text_new = 2
+.added_text_rec = 2
+.added_text[2].style.editstyle  angle(default) size(medsmall) color(black) horizontal(left) vertical(middle) margin(zero) linegap(zero) drawbox(no) boxmargin(zero) fillcolor(bluishgray) linestyle( width(vthin) color(black) pattern(solid)) box_alignment(east) editcopy
+.added_text[1].Delete
+// editor text[1] edits
+
+.xaxis1.reset_rule , tickset(major) ruletype(none) 
+// xaxis1 edits
+
+.xaxis1.reset_rule , tickset(major) ruletype(none) 
+// xaxis1 edits
+
+.AddTextBox added_text editor 6.05954589991688 16.80666504316569
+.added_text_new = 3
+.added_text_rec = 3
+.added_text[3].style.editstyle  angle(default) size(medsmall) color(black) horizontal(left) vertical(middle) margin(zero) linegap(zero) drawbox(no) boxmargin(zero) fillcolor(bluishgray) linestyle( width(vthin) color(black) pattern(solid)) box_alignment(east) editcopy
+.added_text[3].text = {}
+.added_text[3].text.Arrpush Basline
+// editor text[3] edits
+
+.AddTextBox added_text editor 7.202856447071011 28.12543945999157
+.added_text_new = 4
+.added_text_rec = 4
+.added_text[4].style.editstyle  angle(default) size(medsmall) color(black) horizontal(left) vertical(middle) margin(zero) linegap(zero) drawbox(no) boxmargin(zero) fillcolor(bluishgray) linestyle( width(vthin) color(black) pattern(solid)) box_alignment(east) editcopy
+.added_text[3].text = {}
+.added_text[3].text.Arrpush Baseline
+// editor text[3] edits
+
+.added_text[3].DragBy 0 -.2286621094308267
+// editor text[3] reposition
+
+.added_text[3].DragBy 0 -.2286621094308267
+// editor text[3] reposition
+
+.added_text[3].DragBy 0 -.2286621094308267
+// editor text[3] reposition
+
+.added_text[3].DragBy 0 -.2286621094308267
+// editor text[3] reposition
+
+.added_text[3].DragBy 0 -.2286621094308224
+// editor text[3] reposition
+
+.added_text[3].DragBy 0 -.2286621094308267
+// editor text[3] reposition
+
+.added_text[3].DragBy 0 -.2286621094308224
+// editor text[3] reposition
+
+.added_text[3].DragBy -.2286621094308256 0
+// editor text[3] reposition
+
+.added_text[3].DragBy 0 -.2286621094308267
+// editor text[3] reposition
+
+.added_text[3].DragBy 0 -.2286621094308224
+// editor text[3] reposition
+
+.added_text[3].DragBy -.2286621094308245 0
+// editor text[3] reposition
+
+.AddTextBox added_text editor 5.945214845201467 45.38942872201891
+.added_text_new = 5
+.added_text_rec = 5
+.added_text[5].style.editstyle  angle(default) size(medsmall) color(black) horizontal(left) vertical(middle) margin(zero) linegap(zero) drawbox(no) boxmargin(zero) fillcolor(bluishgray) linestyle( width(vthin) color(black) pattern(solid)) box_alignment(east) editcopy
+.added_text[5].text = {}
+.added_text[5].text.Arrpush 6 months
+// editor text[5] edits
+
+.AddTextBox added_text editor 6.05954589991688 54.07858888039029
+.added_text_new = 6
+.added_text_rec = 6
+.added_text[6].style.editstyle  angle(default) size(medsmall) color(black) horizontal(left) vertical(middle) margin(zero) linegap(zero) drawbox(no) boxmargin(zero) fillcolor(bluishgray) linestyle( width(vthin) color(black) pattern(solid)) box_alignment(east) editcopy
+.AddTextBox added_text editor 6.173876954632298 76.25881349518038
+.added_text_new = 7
+.added_text_rec = 7
+.added_text[7].style.editstyle  angle(default) size(medsmall) color(black) horizontal(left) vertical(middle) margin(zero) linegap(zero) drawbox(no) boxmargin(zero) fillcolor(bluishgray) linestyle( width(vthin) color(black) pattern(solid)) box_alignment(east) editcopy
+.added_text[7].text = {}
+.added_text[7].text.Arrpush 12 months
+// editor text[7] edits
+
+.AddTextBox added_text editor 7.545849611217251 80.48906251965065
+.added_text_new = 8
+.added_text_rec = 8
+.added_text[8].style.editstyle  angle(default) size(medsmall) color(black) horizontal(left) vertical(middle) margin(zero) linegap(zero) drawbox(no) boxmargin(zero) fillcolor(bluishgray) linestyle( width(vthin) color(black) pattern(solid)) box_alignment(east) editcopy
+.AddTextBox added_text editor 5.716552735770641 105.1845703381798
+.added_text_new = 9
+.added_text_rec = 9
+.added_text[9].style.editstyle  angle(default) size(medsmall) color(black) horizontal(left) vertical(middle) margin(zero) linegap(zero) drawbox(no) boxmargin(zero) fillcolor(bluishgray) linestyle( width(vthin) color(black) pattern(solid)) box_alignment(east) editcopy
+.added_text[9].text = {}
+.added_text[9].text.Arrpush 7-years
+// editor text[9] edits
+
+.added_text[7].text = {}
+.added_text[7].text.Arrpush 1 year
+// editor text[7] edits
+
+.added_text[7].text = {}
+.added_text[7].text.Arrpush 1-year
+// editor text[7] edits
+
+.added_text[5].text = {}
+.added_text[5].text.Arrpush 6-months
+// editor text[5] edits
+
+
+// <end>

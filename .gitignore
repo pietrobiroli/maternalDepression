@@ -1,0 +1,12 @@
+# Excel files
+*.xls 
+*.xlsx
+
+# Stata graphs
+*.gph
+
+# Raw data
+dataRaw/*
+
+# Compiling the paper again with the unedited output
+paper_test/*

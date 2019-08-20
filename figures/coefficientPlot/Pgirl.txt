@@ -1,0 +1,16 @@
+	beta	rand-pval	
+depindex_7y	-.24876588	 .01021995	
+motherfinancial	 .45965344	 .00022994	
+parentmoney	 .47378299	 .00022994	
+parenttime	 .25946429	 .00422594	
+parentstyle	 .21277394	 .01921095	
+fertility_vars	 .11583266	 .27795221	
+healthindex	  .2017427	 .10512504	
+cognindex	 .12505933	 .23999018	
+emoindex	-.08098327	  .3618683	
+childmort	  .2791098	 .00722294	
+motherhealthindex	 .15116349	 .10013004	
+fatherfinancial	-.13857598	 .22900116	
+relation_traj	 .15523659	 .24998019	
+grandmothers	 .13005674	 .21101915	
+socialsupport	 .53042856	 .00022994	
