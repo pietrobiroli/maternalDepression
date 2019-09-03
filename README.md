@@ -7,7 +7,7 @@ Authors: Victoria Baranov & Pietro Biroli
 
 Date: September 4, 2019
 
-Data and Code can be downloaded here: https://github.com/pietrobiroli/maternalDepression/releases/tag/AER_replication 
+Data and Code can be downloaded here: https://github.com/pietrobiroli/maternalDepression/ 
 
 ## How to replicate the results
 ### STEP 1:
