@@ -78,7 +78,7 @@ foreach x of varlist `depvars' {
 	dis "`cmd' `x' `treat' `varlist' `txcontrolvars' `controlvars' `if' `in' `weights', `options'"
 		 `cmd' `x' `treat' `varlist' `txcontrolvars' `controlvars' `if' `in' `weights', `options'
 		 
-	randcmd ((`treat') `cmd' `x' `treat' `varlist' `controlvars' `txcontrolvars' `if' `in' `weights', `options'), treatvars(`treat') reps(`iter')
+	randcmd ((`treat') `cmd' `x' `treat' `varlist' `controlvars' `txcontrolvars' `if' `in' `weights', `options'), treatvars(`treat') reps(`iter') seed($seed)
 	
 	mat define A=e(RCoef)
     replace `act_pval' = A[1,6] in `counter'

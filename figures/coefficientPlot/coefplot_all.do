@@ -1,34 +1,26 @@
 *===============================================================================
 *************************** Coefficient Plots ***********************************
 *
-* Summary: 		perpares data set and code for coefficient plots, see more notes in 
+* Summary: 		perpares data set and code for coefficient plots, see more notes in
 *				section "GRAPHS"
-* 
+*
 *
 * Main Output: 	graph that plots all coefficients (all.pdf)
 *
 * Author: 		Simona Sartor and Pietro Biroli
 *
 * Date: 		August 2019
-
-* TODO:         Saving the matrix Ppooled, Pgirl, and Pboy and then reading them again is not necessary
-*               Do all the calculations directly in THP_analysis.do in matrix form
 *
 *===============================================================================
 
 
-
-
 /* set maindir
-global maindir "Z:\Simona\RA Pietro\"
-global maindir "/mnt/data/Dropbox/SavingBrains/4_Data"
-global maindir "/Users/pbirol/Dropbox/SavingBrains/4_Data/"
 cd "${maindir}/figures/coefficientPlot/"
 */
 
 // ----------------------------------------------------------------------------
 
-// IMPORT AND APPEND DATA SET // 
+// IMPORT AND APPEND DATA SET //
 
 foreach var in pooled girl boy {
 
@@ -38,11 +30,11 @@ drop v4
 
 gen level="`var'"
 
-drop if inlist(v1, "motherhealthindex", "fatherfinancial", /// 
+drop if inlist(v1, "motherhealthindex", "fatherfinancial", ///
 "relation_traj", "grandmothers", "socialsupport")
 
 rename (v1 rand) (regressor pValue)
-	
+
 save "`var'.dta", replace
 
 }
@@ -69,12 +61,12 @@ gen levelN=1 if level=="pooled"
 replace levelN=2 if level=="girl"
 replace levelN=3 if level=="boy"
 
-order levelN beta pValue 
+order levelN beta pValue
 
 gen type=.
 
 replace type=1 if regressor=="depindex_7y"
-replace type=2 if inlist(regressor, "motherfinancial","parentmoney" /// 
+replace type=2 if inlist(regressor, "motherfinancial","parentmoney" ///
 ,"parenttime","parentstyle","fertility_vars")
 replace type=3 if type==.
 
@@ -89,7 +81,7 @@ replace regOrder = 8  if regressor == "cognindex"
 replace regOrder = 9  if regressor == "emoindex"
 replace regOrder = 10 if regressor == "childmort"
 
-sort type regOrder levelN 
+sort type regOrder levelN
 
 gen order=_n
 
@@ -155,12 +147,12 @@ foreach h in 0 5{
 gen max9`h'b=.
 gen min9`h'b=.
 
-} 
+}
 
 * upper bound
 foreach h in 5 0{
 
-	replace max9`h'b=beta+se*max9`h' 
+	replace max9`h'b=beta+se*max9`h'
 
 }
 
@@ -168,10 +160,10 @@ foreach h in 5 0{
 foreach h in 5 0{
 
 	replace min9`h'b=beta-se*min9`h'
-                  
+
 }
 
-order regressor pV min*90*b max*90*b min*95*b max*95*b  beta se  
+order regressor pV min*90*b max*90*b min*95*b max*95*b  beta se
 
 sort order
 save "final.dta", replace
@@ -181,7 +173,7 @@ save "final.dta", replace
 
 // GRAPHS //
 
-* - 	confidence intervals: 90% (with capped line) and 95% 
+* - 	confidence intervals: 90% (with capped line) and 95%
 *		(continuous, fading out line)
 
 
@@ -203,7 +195,7 @@ sort order
 forval j=1/3{
 
 
-mkmat beta-levelN if levelN==`j', matrix(A`j') 
+mkmat beta-levelN if levelN==`j', matrix(A`j')
 
 matrix A`j'2=A`j''
 
@@ -213,24 +205,24 @@ mat list A`j'2
 
 coefplot matrix(A12[1,])   (matrix(A22[1,])) (matrix(A32[1,])), ci((2 3) (4 5)) xline(0, lwidth(medium) lcolor(gray) lpattern(solid)) ///
 xscale(range(-0.5 0.75)) ///
-ylabel(, labsize(vsmall) nogrid) /// 
-xlabel(-0.5(0.25)0.75, labsize(vsmall)) xtitle("Effect size in standard deviations of the control group", size(vsmall)) /// 
+ylabel(, labsize(vsmall) nogrid) ///
+xlabel(-0.5(0.25)0.75, labsize(vsmall)) xtitle("Effect size in standard deviations of the control group", size(vsmall)) ///
 coeflabels( r1="Depression Severity" ///
-             r2="Mother's Financial Empowerment"  /// 
+             r2="Mother's Financial Empowerment"  ///
              r3="Parental Investment (monetary)" ///
-             r4="Parental Investment (time-intensive)" /// 
+             r4="Parental Investment (time-intensive)" ///
              r5="Parenting Style" ///
              r6="Fertility" ///
              r7="Physical Development" ///
              r8="Cognitive Development" ///
-             r9="Socio-emotional Development"  /// 
+             r9="Socio-emotional Development"  ///
             r10="Sibling Survival Index" ///
            ) ///
- msize(vsmall) headings(r1= "{bf:Mother{c 39}s Mental Health}" r2="{bf:Mother{c 39}s Decision-Making}" r7= "{bf:Child Outcomes}" , labsize(vsmall)) /// 
+ msize(vsmall) headings(r1= "{bf:Mother{c 39}s Mental Health}" r2="{bf:Mother{c 39}s Decision-Making}" r7= "{bf:Child Outcomes}" , labsize(vsmall)) ///
  ciopts(recast(rcap rspike) lwidth(medium thin)) graphreg(color(gs16)) aspectratio(1.2) ///
  legend(order(3 "Full Sample" 6 "Female" 9 "Male") ring(0) bmargin(small) position(1) size(vsmall) rows(3) ) ///
 
-graph play pink_change.grec 
+graph play pink_change.grec
 
 graph save "coefplot_all.gph", replace
 

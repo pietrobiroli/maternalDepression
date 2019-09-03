@@ -14,13 +14,15 @@ Data and Code can be downloaded here: https://github.com/pietrobiroli/maternalDe
 ### STEP 1:
 - Download and unpack the zip file into a preferred location.
 - Folder should contain the following elements
-    -  folders:
-        -  dataClean/
-        -  figures/
-        -  logfiles/
-        -  tables/
+  -  folders:
+      -  dataClean/
+      -  figures/
+      -  figures/coefficientPlot/
+      -  figures/preExisting
+      -  logfiles/
+      -  tables/
 
-  -  files:
+  -  execution files:
       -  README.md
       -  README.pdf
       -  00_runall.do
@@ -34,43 +36,52 @@ Data and Code can be downloaded here: https://github.com/pietrobiroli/maternalDe
       -  randcmd.sthlp
       -  stepdownB.ado
       -  stepdownrandcmd.ado
+      -  figures/coefficientPlot/coefplot_all.do
+
+  -  data files:
+      -  dataClean/THP_clean.csv
+      -  dataClean/THP_clean.dta
+
+### DATA ACCESS:
+The replication files contain a publically available, cleaned, and anonymized dataset, THP_clean.dta, which can be used to run the replication code in THP_analysis.do. Files THP_merge.do and THP_cleandata.do merge and clean raw data to produce THP_clean.dta.
+
+The raw data for this project are confidential and not publically available, but may be made accessible with Data Use Agreements with the Human Development Research Foundation http://hdrfoundation.org/. Researchers interested in access to the data may contact Victoria Baranov at victoria.baranov@unimelb.edu.au. It can take some months to negotiate data use agreements and gain access to the data. Completion of human subject research training may also be required (https://citiprogram.org). The author will assist with any reasonable replication attempts for two years following publication. 
+
 
 ### STEP 2:
   - Open 00_runall.do in Stata
   - Change the "global maindir" location to the path on your computer where you downloaded the data
   - run 00_runall.do: this will run the data analysis, probably over serval days, and produce all of the
-	output presented in the paper.
+ output presented in the paper.
   - To obtain only a subset of the output, open THP_analysis.do and set the switches to 1 or 0 accordingly
   - To make the code run faster, open THP_analysis.do and change "global iterations" to a lower number (e.g.
-	10)
-  - NB: Files THP_merge.do and THP_cleandata.do merge and clean raw data that is not publicly available due to confidential information on respondents and health workers.
-
+ 10). This change will impact the p-values calculated with randomization inference and/or the stepdown procedure reported in the tables and in Figure 2.
 
 
 ## Description of the code
 ### NOT FOR REPLICATION:
 
 0. THP_merge.do --
-This file merges the raw data and ensures that the publically available data contains no confidential information. The raw datasets are not included as they all contain	identifying information on respondents and health workers.
+This file merges the raw data and ensures that the publically available data contains no confidential information. The raw datasets are not included as they all contain identifying information on respondents and health workers.
 
 
 1. THP_cleandata.do -- This file starts from the merged data and cleans it for the analysis
     * This file will use the following inputs
         * /dataRaw/THP_merge.dta
 
-    *This file will produce the following outputs
+    * This file will produce the following outputs
         * /dataClean/THP_clean.dta
         * /dataClean/THP_clean.csv
 
     * commands needed:
-        * _gweightave (From Haushofer 2013)
+        * _gweightave (from https://github.com/PrincetonBPL/ado-gallery)
         * mat2txt
         * xtgraph
         * zanthro (from https://www.stata-journal.com/article.html?article=dm0004_1)
 
 ### FOR REPLICATION:
 
-2. THP_analysis.do -- 	This file takes the clean data (from THP_cleandata.do) and runs the analysis for the paper.
+2. THP_analysis.do --  This file takes the clean data (from THP_cleandata.do) and runs the analysis for the paper.
 NB: The code can take several days to run to reproduce all the tables in the paper because of the randomization inference and stepdown procedures.
 
     * This file will use the following inputs
@@ -84,7 +95,7 @@ NB: The code can take several days to run to reproduce all the tables in the pap
          * leebounds       (from https://github.com/PrincetonBPL/ado-gallery)
          * randcmd         (from A Young's website http://personal.lse.ac.uk/YoungA/)
          * stepdownB       (adapted from https://github.com/PrincetonBPL/ado-gallery)
-         * stepdownrancmd  (adapted from https://github.com/PrincetonBPL/ado-gallery)
+         * stepdownrandcmd  (adapted from https://github.com/PrincetonBPL/ado-gallery)
          * mat2txt
          * estout
          * moremata
@@ -94,3 +105,25 @@ NB: The code can take several days to run to reproduce all the tables in the pap
          * blindschemes
          * grc1leg     (from http://www.stata.com/users/vwiggins/grc1leg/grc1leg.ado)
          * leebounds   (from https://www.stata-journal.com/article.html?article=st0364)
+         * figures/coefficientPlot/coefplot_all.do
+
+## Correspondence between code output and paper tables and figures
+Here below a crosswalk between the tables and figures in the final version of the paper and the section of the code that create them.
+
+|                   |       Code section      |            Output name                   |
+|-------------------|:-----------------------:|------------------------------------------|
+| Figure 2          | `itt_figure'            | figures/coefplot_all.pdf                 |
+| Figure 3          | `dep_trends'            | figures/dep_trends.pdf                   |
+| Table 1           | `balance_tables'        | tables/baseline_balance.tex              |
+| Table 2           | `depression_trajectory' | tables/depression_mainvars.tex           |
+| Table 3           | `depression_trajectory' | tables/depression_mainvars.tex           |
+| Table 4           | `main_tables'           | tables/c_main_motherdecisions.tex        |
+| Table 5           | `dep_nondep'            | tables/c_dep_nondep_mothergap.tex        |
+| Table 6           | `main_tables'           | tables/c_main_childoutcomes.tex          |
+| Table 7           | `dep_nondep'            | tables/c_dep_nondep_childoutcomes.tex    |
+| Table 8           | `main_attrition_ipw'    | tables/c_ipw_main_allindices.tex         |
+| Table 9           | `main_tables'           | tables/c_main_mediators.tex              |
+| Appendix Table A1 | `balance_tables'        | tables/attrition_balance.tex             |
+| Appendix Table A2 | `balance_tables'        | tables/baseline_balance_bygender.tex.tex |
+
+Note: Table 2 and 3 are created from the same file, and then manually separated

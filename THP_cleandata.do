@@ -232,12 +232,6 @@ gen girlXtreat= girl*treat
 *child age (age_child was wrong not age_int, can see from other dataset)
 rename age_int c_age_int
 la var c_age_int "Child age at interview"
-
-gen c_age_days = c_age_int*365.25
-gen c_age_start = c_age_days- days_since_start
-replace c_age_start= c_age_start/365.25
-la var c_age_start "Child Age at start of SB interviews"
-drop days_since_start c_age_days
 gen g4a=ch_9/(c_age_int-5)
 la var g4a "Grade-for-age"
 
@@ -1153,8 +1147,8 @@ exclusivebf_6m anybf_6m play_mo_1y play_fa_1y var599 discussed var618 var619 var
 HAZ_6 WAZ_6 diarhea_6m_flip ari_6m_flip c_wt* c_ht* ///
 HAZ_12 WAZ_12 diarhea_1y_flip ari_1y_flip ///
 hamd_baseline bdq_baseline ///
-depressed_6m hamd_6m bdq_6m gaf_6m_2 ///
-depressed_1y hamd_1y bdq_1y gaf_1y_2 ///
+depressed_6m hamd_6m bdq_6m gaf_6m gaf_6m_2 ///
+depressed_1y hamd_1y bdq_1y gaf_1y gaf_1y_2 ///
 depressed scid_tot_2 impaired_2 notdep1213_2 ///
 depressed_6m depressed_1y depressed ///
 depindex_7y depindex_1y depindex_6m ///

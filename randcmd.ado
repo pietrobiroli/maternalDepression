@@ -42,7 +42,7 @@ preserve
 *In case of bootstrap with user set seed
 	local tempseed = "`c(seed)'"
 	`eqn'
-	// set seed `tempseed' //the seed is set in the mainfile
+	set seed `tempseed' 
 	matrix `b' = J(`cols',2,.)
 	local i = 0
 	local length = 0
@@ -71,7 +71,7 @@ preserve
 	display " "
 
 *Preparing variables and matrices to be used in randomization analysis
-	//set seed `seed' //the seed is set in the mainfile
+	set seed `seed' 
 	if ("`groupvar'" ~= "") {
 		egen `M' = group(`groupvar')
 		quietly sum `M'
@@ -123,7 +123,7 @@ display "Running `reps' randomization iterations:"
 *Estimating equations
 		local tempseed = "`c(seed)'"
 		capture `eqn'
-		// set seed `tempseed' //seed set in the mainfile
+		set seed `tempseed'
 		if (_rc == 0) {
 			matrix `bb' = J(`cols',2,.)
 			local i = 0
@@ -201,7 +201,7 @@ matrix rownames `ResEqn' = "joint test"
 ereturn matrix RCoef = `ResCoef', copy
 ereturn matrix REqn = `ResEqn', copy
 
-// set seed `oldseed' //seed is set in the mainfile
+set seed `oldseed'
 
 *Saving, if user requested
 if ("`saving'" ~= "") {

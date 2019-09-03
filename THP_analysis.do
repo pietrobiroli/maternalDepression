@@ -45,7 +45,8 @@ log using "$maindir/logfiles/THP_analysis $S_DATE.smcl", replace
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *	Settings
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-set seed 31415
+global seed 31415
+set seed $seed
 
 global sig          = "star(* 0.10 ** 0.05 *** 0.01)"
 global iterations   = 1000    // 1000 is suggested for stepdownrandcmd: does RI and the permutation for stepdown, very slow!
@@ -61,21 +62,21 @@ if `factordomains' {
 *		  set code 0 instead of 1
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 local sumstattables       1
-     local balance_tables            1
-     local sumtab_by_index           1
-     local dep_nondep                1
+     local balance_tables            1   // creates Table 1 and Appendix Tables A1 and A2
+     local dep_nondep                1   // creates Table 5 and 7
+		 local sumtab_by_index           1
      local sr_diffs_bysmpl           1
      local correlation_tables        1
 
 local analysis           1
-     local depression_trajectory     1
-     local main_tables               1
-     local itt_figure                1
+     local depression_trajectory     1   // creates Table 2 and 3
+     local main_tables               1   // creates Table 4, 6, and 9
+		 local main_attrition_ipw        1   // creates Table 8
+     local itt_figure                1   // creates Figure 2
      local sensitivity_controls      1
      local within_index_tables       1
      local het_tables                1
      local dd_tables                 1
-     local main_attrition_ipw        1
      local attrition_bygender        1
      local misc                      1
      local magnitude                 1
@@ -83,7 +84,7 @@ local analysis           1
      local sci_byfertility           1
 
 local make_graphs        1
-     local dep_trends                1
+     local dep_trends                1   // creates Figure 3
      local qte_graphs                1
      local density_graphs            1
 
@@ -956,7 +957,7 @@ foreach thisvargroup in depression_mainvars {
 				estadd local thisstat`countse' = "`r(sestar)'": col3
 
 				*** COLUMN 4: FWER P-VALUE ***
-				randcmd ((Group) reg `var' Group $controls_baseline  if ~attrit , cluster(uc)), treatvars(Group) reps(${iterations})
+				randcmd ((Group) reg `var' Group $controls_baseline  if ~attrit , cluster(uc)), treatvars(Group) reps(${iterations}) seed($seed)
 				mat define A=e(RCoef)
 				scalar p = A[1,6]
 				local pRI = string(p, "%9.3f")
@@ -1140,7 +1141,7 @@ foreach var of varlist depindex_7y $motherdecisions $childoutcomes $mediators{ /
 
 		*pval
 	cap mat drop Apooled
-	randcmd ((Group) reg `var' Group $controls_baseline  if ~attrit , cluster(uc)), treatvars(Group) reps($iterations)
+	randcmd ((Group) reg `var' Group $controls_baseline  if ~attrit , cluster(uc)), treatvars(Group) reps($iterations) seed($seed)
 	mat define Apooled=e(RCoef)
 	matrix Ppooled[`iter',2] = Apooled[1,6]
 	scalar p_pooled_`var' = Apooled[1,6]
@@ -1152,7 +1153,7 @@ foreach var of varlist depindex_7y $motherdecisions $childoutcomes $mediators{ /
 	scalar beta_girl_`var' = _b[Group]
 		*pval
 	cap mat drop Agirl
-	randcmd ((Group) reg `var' Group $controls_baseline  if ~attrit & girl==1, cluster(uc)), treatvars(Group) reps($iterations)
+	randcmd ((Group) reg `var' Group $controls_baseline  if ~attrit & girl==1, cluster(uc)), treatvars(Group) reps($iterations) seed($seed)
 	mat define Agirl=e(RCoef)
 	matrix Pgirl[`iter',2] = Agirl[1,6]
 	scalar p_girl_`var' = Agirl[1,6]
@@ -1165,7 +1166,7 @@ foreach var of varlist depindex_7y $motherdecisions $childoutcomes $mediators{ /
 
 	*pval
 	cap mat drop Aboy
-	randcmd ((Group) reg `var' Group $controls_baseline  if ~attrit & girl==0, cluster(uc)), treatvars(Group) reps($iterations)
+	randcmd ((Group) reg `var' Group $controls_baseline  if ~attrit & girl==0, cluster(uc)), treatvars(Group) reps($iterations) seed($seed)
 	mat define Aboy=e(RCoef)
 	matrix Pboy[`iter',2] = Aboy[1,6]
 	scalar p_boy_`var' = Aboy[1,6]
@@ -1854,7 +1855,7 @@ noisily display "main_attrition_ipw"
 			local ++varcount
 		}
 		esttab col* using "$tablefile/c_ipw_main_allindices`factor'.tex", cells(none) booktabs nonotes compress replace alignment(SSc) mgroups("Treatment Effect $\beta$ / (s.e.)" "\specialcell{Attrition Bounds}", pattern(1 0 1 ) prefix(\multicolumn{@span}{c}{) suffix(}) span erepeat(\cmidrule(lr){@span})) mtitle("\specialcell{Unweighted}"  "\specialcell{ IPW}" " 95\% CI" ) stats(`statnames', labels(`varlabels'))
-}
+} // end of if main_attrition_ipw
 
 /////////////////////////
 // Attrition by gender //
@@ -2056,10 +2057,10 @@ la var parenttime "Time investment"
 global controls_plus "$controls_dd intervr_1-intervr_9 girl##c.c_age_int "
 eststo clear
 foreach outcomevar in healthindex cognindex emoindex {
-	eststo: reg `outcomevar' $parentcontrols  		 	$controls_plus , cl(uc), if sample==1
-	eststo: reg `outcomevar' $parentcontrols dep_sample  $controls_plus, cl(uc)
+	eststo: reg `outcomevar' $parentcontrol             $controls_plus , cl(uc), if sample==1
+	eststo: reg `outcomevar' $parentcontrol dep_sample  $controls_plus, cl(uc)
 	}
-esttab using "$tablefile/c_parenting_childdev`factor'.tex", cells("b(fmt(%8.2f)star)" "se(fmt(%8.2f)par)") stats(N r2, fmt(0 2) layout("\multicolumn{1}{c}{@}" "\multicolumn{1}{S}{@}") labels(`"Observations"' `"\(R^{2}\)"')) replace booktabs label nonotes compress alignment(SSSSSSSSS) collabels(none)  keep($parentcontrols dep_sample) nomtitles star(* 0.10 ** 0.05 *** 0.01)	mgroups("Physical development" "Cognitive development" "Socioemotional development", pattern(1 0 1 0 1 0 ) prefix(\multicolumn{@span}{c}{) suffix(}) span erepeat(\cmidrule(lr){@span}))
+esttab using "$tablefile/c_parenting_childdev`factor'.tex", cells("b(fmt(%8.2f)star)" "se(fmt(%8.2f)par)") stats(N r2, fmt(0 2) layout("\multicolumn{1}{c}{@}" "\multicolumn{1}{S}{@}") labels(`"Observations"' `"\(R^{2}\)"')) replace booktabs label nonotes compress alignment(SSSSSSSSS) collabels(none)  keep($parentcontrol dep_sample) nomtitles star(* 0.10 ** 0.05 *** 0.01)	mgroups("Physical development" "Cognitive development" "Socioemotional development", pattern(1 0 1 0 1 0 ) prefix(\multicolumn{@span}{c}{) suffix(}) span erepeat(\cmidrule(lr){@span}))
 
 * depression trajectories and outcomes  // not used in the paper
 la var depressed "Depressed (7y)"
