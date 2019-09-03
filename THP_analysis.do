@@ -1957,7 +1957,7 @@ save `THP_attrition', replace
 			local ++varcount
 		}
 		esttab col* using "$tablefile/c_attrition_bygender.tex", cells(none) booktabs nonotes compress replace alignment(SSSS) mgroups("Girls" "Boys", pattern(1 0 0 1 0 0) prefix(\multicolumn{@span}{c}{) suffix(}) span erepeat(\cmidrule(lr){@span})) mtitle("\specialcell{Unadjusted \\ $\beta$/(s.e.)}"  "95\% CI" "" "\specialcell{Unadjusted \\ $\beta$/(s.e.)}" "95\% CI" "") stats(`statnames', labels(`varlabels'))
-}
+} // end if `attrition_bygender'
 
 
 

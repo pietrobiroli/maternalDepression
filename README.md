@@ -45,7 +45,7 @@ Data and Code can be downloaded here: https://github.com/pietrobiroli/maternalDe
 ### DATA ACCESS:
 The replication files contain a publically available, cleaned, and anonymized dataset, THP_clean.dta, which can be used to run the replication code in THP_analysis.do. Files THP_merge.do and THP_cleandata.do merge and clean raw data to produce THP_clean.dta.
 
-The raw data for this project are confidential and not publically available, but may be made accessible with Data Use Agreements with the Human Development Research Foundation http://hdrfoundation.org/. Researchers interested in access to the data may contact Victoria Baranov at victoria.baranov@unimelb.edu.au. It can take some months to negotiate data use agreements and gain access to the data. Completion of human subject research training may also be required (https://citiprogram.org). The author will assist with any reasonable replication attempts for two years following publication. 
+The raw data for this project are confidential and not publically available, but may be made accessible with Data Use Agreements with the Human Development Research Foundation http://hdrfoundation.org/. Researchers interested in access to the data may contact Victoria Baranov at victoria.baranov@unimelb.edu.au. It can take some months to negotiate data use agreements and gain access to the data. Completion of human subject research training may also be required (https://citiprogram.org). The author will assist with any reasonable replication attempts for two years following publication.
 
 
 ### STEP 2:
@@ -124,6 +124,6 @@ Here below a crosswalk between the tables and figures in the final version of th
 | Table 8           | `main_attrition_ipw'    | tables/c_ipw_main_allindices.tex         |
 | Table 9           | `main_tables'           | tables/c_main_mediators.tex              |
 | Appendix Table A1 | `balance_tables'        | tables/attrition_balance.tex             |
-| Appendix Table A2 | `balance_tables'        | tables/baseline_balance_bygender.tex.tex |
+| Appendix Table A2 | `balance_tables'        | tables/baseline_balance_bygender.tex     |
 
 Note: Table 2 and 3 are created from the same file, and then manually separated
