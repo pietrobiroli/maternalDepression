@@ -45,8 +45,6 @@ log using "$maindir/logfiles/THP_analysis $S_DATE.smcl", replace
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *	Settings
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-global seed 31415
-set seed $seed
 
 global sig          = "star(* 0.10 ** 0.05 *** 0.01)"
 global iterations   = 1000    // 1000 is suggested for stepdownrandcmd: does RI and the permutation for stepdown, very slow!
@@ -957,7 +955,7 @@ foreach thisvargroup in depression_mainvars {
 				estadd local thisstat`countse' = "`r(sestar)'": col3
 
 				*** COLUMN 4: FWER P-VALUE ***
-				randcmd ((Group) reg `var' Group $controls_baseline  if ~attrit , cluster(uc)), treatvars(Group) reps(${iterations}) seed($seed)
+				randcmd ((Group) reg `var' Group $controls_baseline  if ~attrit , cluster(uc)), treatvars(Group) reps(${iterations})
 				mat define A=e(RCoef)
 				scalar p = A[1,6]
 				local pRI = string(p, "%9.3f")
@@ -1141,7 +1139,7 @@ foreach var of varlist depindex_7y $motherdecisions $childoutcomes $mediators{ /
 
 		*pval
 	cap mat drop Apooled
-	randcmd ((Group) reg `var' Group $controls_baseline  if ~attrit , cluster(uc)), treatvars(Group) reps($iterations) seed($seed)
+	randcmd ((Group) reg `var' Group $controls_baseline  if ~attrit , cluster(uc)), treatvars(Group) reps($iterations)
 	mat define Apooled=e(RCoef)
 	matrix Ppooled[`iter',2] = Apooled[1,6]
 	scalar p_pooled_`var' = Apooled[1,6]
@@ -1153,7 +1151,7 @@ foreach var of varlist depindex_7y $motherdecisions $childoutcomes $mediators{ /
 	scalar beta_girl_`var' = _b[Group]
 		*pval
 	cap mat drop Agirl
-	randcmd ((Group) reg `var' Group $controls_baseline  if ~attrit & girl==1, cluster(uc)), treatvars(Group) reps($iterations) seed($seed)
+	randcmd ((Group) reg `var' Group $controls_baseline  if ~attrit & girl==1, cluster(uc)), treatvars(Group) reps($iterations)
 	mat define Agirl=e(RCoef)
 	matrix Pgirl[`iter',2] = Agirl[1,6]
 	scalar p_girl_`var' = Agirl[1,6]
@@ -1166,7 +1164,7 @@ foreach var of varlist depindex_7y $motherdecisions $childoutcomes $mediators{ /
 
 	*pval
 	cap mat drop Aboy
-	randcmd ((Group) reg `var' Group $controls_baseline  if ~attrit & girl==0, cluster(uc)), treatvars(Group) reps($iterations) seed($seed)
+	randcmd ((Group) reg `var' Group $controls_baseline  if ~attrit & girl==0, cluster(uc)), treatvars(Group) reps($iterations)
 	mat define Aboy=e(RCoef)
 	matrix Pboy[`iter',2] = Aboy[1,6]
 	scalar p_boy_`var' = Aboy[1,6]

@@ -30,11 +30,11 @@ if "`rcluster'" == "" {
 	dis""
 	dis "Randomization group not specificied; iid across all observations assumed."
 	dis""
-	tempvar cluster 
+	tempvar cluster
 	gen `cluster' = _n
 	}
 
-	
+
 if "`type'" == "" {
 	local type "fwer"
 	dis""
@@ -42,7 +42,7 @@ if "`type'" == "" {
 	dis""
 	}
 
-* set seed 1073741823 //the seed is set in the mainfile
+set seed 1073741823
 
 quietly {
 * generate variables to store actual and simulated t-stats/p-vals
@@ -64,7 +64,7 @@ foreach x of varlist `depvars' {
 			local controlvars "`controlvars' `x'`stem'"
 		}
 	}
-	
+
 	local txcontrolvars ""
     if "`txcontrols'"~="" {
 		foreach txvar in `txcontrols' {
@@ -74,12 +74,12 @@ foreach x of varlist `depvars' {
 			local txcontrolvars "`txcontrolvars' `txvar'Xtreat `txvar'"
 		}
 	}
-	 
+
 	dis "`cmd' `x' `treat' `varlist' `txcontrolvars' `controlvars' `if' `in' `weights', `options'"
 		 `cmd' `x' `treat' `varlist' `txcontrolvars' `controlvars' `if' `in' `weights', `options'
-		 
-	randcmd ((`treat') `cmd' `x' `treat' `varlist' `controlvars' `txcontrolvars' `if' `in' `weights', `options'), treatvars(`treat') reps(`iter') seed($seed)
-	
+
+	randcmd ((`treat') `cmd' `x' `treat' `varlist' `controlvars' `txcontrolvars' `if' `in' `weights', `options'), treatvars(`treat') reps(`iter')
+
 	mat define A=e(RCoef)
     replace `act_pval' = A[1,6] in `counter'
 
@@ -124,7 +124,7 @@ quietly {
 		replace `simtreatment_uni' = . if `ind' != 1
 		sum `simtreatment_uni', d
 		local cutoff = r(p50)
-		bysort `rcluster': replace `simtreatment_uni' = `simtreatment_uni'[1] 
+		bysort `rcluster': replace `simtreatment_uni' = `simtreatment_uni'[1]
 	}
 	replace `simtreatment' = (`simtreatment_uni'<=`cutoff')
 	replace `tstatsim' = .
@@ -146,16 +146,16 @@ quietly {
 			local txcontrolvars "`txcontrolvars' `txvar'Xsimtreat `txvar'"
 		}
 	}
-	
-		randcmd ((`simtreatment') `cmd' `depvar' `simtreatment' `varlist' `controlvars' `txcontrolvars' `if' `in' `weights', `options'), treatvars(`simtreatment') reps(`iter') 
+
+		randcmd ((`simtreatment') `cmd' `depvar' `simtreatment' `varlist' `controlvars' `txcontrolvars' `if' `in' `weights', `options'), treatvars(`simtreatment') reps(`iter')
 		mat define A=e(RCoef)
-		
+
 		scalar p = A[1,6]
 		replace `pvalsim' = p in `lhsvar'
 
     }
 	* in this section we perform the "step down" procedure that replaces simulated p-vals with the minimum of the set of simulated p-vals associated with outcomes that had actual p-vals greater than or equal to the one being replaced.  For each outcome, we keep count of how many times the ultimate simulated p-val is less than the actual observed p-val.
-    	
+
 	local countdown `numvars'
     while `countdown' >= 1 {
         replace `pvalsim' = min(`pvalsim',`pvalsim'[_n+1]) in `countdown'

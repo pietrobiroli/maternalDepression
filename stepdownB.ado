@@ -1,6 +1,6 @@
 *! version 2.0.1  30july2019
 * Started from stepdown.ado file from https://github.com/PrincetonBPL/ado-gallery
-* Added: 
+* Added:
 *       use the naive pvalue as a starting point
 *       within the same loop as the stepdown, create randomization inference by randomization-group
 *       included option to make controls demeaned and interacted with treatments
@@ -30,11 +30,11 @@ if "`rcluster'" == "" {
 	dis""
 	dis "Randomization group not specificied; iid across all observations assumed."
 	dis""
-	tempvar cluster 
+	tempvar cluster
 	gen `cluster' = _n
 	}
 
-	
+
 if "`type'" == "" {
 	local type "fwer"
 	dis""
@@ -42,7 +42,7 @@ if "`type'" == "" {
 	dis""
 	}
 
-* set seed 1073741823 //the seed is set in the mainfile
+set seed 1073741823
 
 quietly {
 * generate variables to store actual and simulated t-stats/p-vals
@@ -64,7 +64,7 @@ foreach x of varlist `depvars' {
 			local controlvars "`controlvars' `x'`stem'"
 		}
 	}
-	
+
 	local txcontrolvars ""
     if "`txcontrols'"~="" {
 		foreach txvar in `txcontrols' {
@@ -74,7 +74,7 @@ foreach x of varlist `depvars' {
 			local txcontrolvars "`txcontrolvars' `txvar'Xtreat `txvar'"
 		}
 	}
-	 
+
 	dis "`cmd' `x' `treat' `varlist' `txcontrolvars' `controlvars' `if' `in' `weights', `options'"
 		 `cmd' `x' `treat' `varlist' `txcontrolvars' `controlvars' `if' `in' `weights', `options'
 
@@ -121,7 +121,7 @@ quietly {
 		replace `simtreatment_uni' = . if `ind' != 1
 		sum `simtreatment_uni', d
 		local cutoff = r(p50)
-		bysort `rcluster': replace `simtreatment_uni' = `simtreatment_uni'[1] 
+		bysort `rcluster': replace `simtreatment_uni' = `simtreatment_uni'[1]
 	}
 	replace `simtreatment' = (`simtreatment_uni'<=`cutoff')
 	replace `tstatsim' = .
