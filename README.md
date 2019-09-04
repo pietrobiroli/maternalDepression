@@ -60,7 +60,7 @@ The raw data for this project are confidential and not publically available, but
 ## Description of the code
 ### NOT FOR REPLICATION:
 
-0. THP_merge.do --
+0. THP_mergedata.do --
 This file merges the raw data and ensures that the publically available data contains no confidential information. The raw datasets are not included as they all contain identifying information on respondents and health workers.
 
 
