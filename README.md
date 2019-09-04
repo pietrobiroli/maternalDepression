@@ -126,3 +126,27 @@ Here below a crosswalk between the tables and figures in the final version of th
 | Appendix Table A2 | `balance_tables'        | tables/baseline_balance _bygender.tex     |
 
 Note: Table 2 and 3 are created from the same file, and then manually separated
+
+
+
+
+
+
+## Correspondence for the Online Appendix Tables/Figures Referenced in Paper 
+|                          |       Code section         |            Output name                         |
+|--------------------------|:--------------------------:|------------------------------------------------|
+| Online App Table B2-B5   | `sumtab_by_index'          | tables/c_sumstats*.tex                         |
+| Online App Table B6-B7   | `correlation_tables'       | tables/correlates_index*.tex                   |
+| Online App Table D11     | `sr_diffs_bysmpl'          | tables/c_treatmenteffect_diffs_byattrition.tex |
+| Online App Table D12     | `attrition_bygender'       | tables/c_attrition_bygender.tex                |
+| Online App Table E13-E14 | `sensitivity_controls'     | tables/c_control_sensitivity.tex               |
+| Online App Table E15     | `main_tables'              | tables/c_main_motherdecisions_7y.tex           |
+| Online App Table E16     | `misc'                     | tables/c_parenting_childdev.tex                |
+| Online App Table E17     | `misc'                     | tables/c_dep_empowered.tex                     |
+| Online App Table E18     | `dd_tables'                | tables/c_dd_allindices_lhwFE.tex               |
+| Online App Table E19     | `magnitude'                | tables/c_magnitude.tex                         |
+| Online App Table G22-G25 | `het_tables'               | tables/c_*_het1.tex                            |
+| Online App Table H26-H47 | `within_index_tables'      | tables/c_within_*.tex                          |
+| Online App Figure I3     | `density_graphs'           | figures/density_*.pdf                          |
+| Online App Figure I4     | `qte_graphs'               | figures/qte_*.pdf                              |
+
