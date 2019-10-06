@@ -106,7 +106,7 @@ cd "${maindir}"
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 *	Global varlists
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-do ${maindir}THP_globalvars.do
+do ${maindir}/THP_globalvars.do
 /*
 {
 *baseline characteristics which will get demeaned and interacted with T in the
@@ -448,6 +448,7 @@ local statnames "`statnames' testp "
 local varlabels "`varlabels' "\midrule Joint test (\emph{p}-value)" "
 
 esttab col* using "$tablefile/attrition_balance.tex", cells(none) f booktabs nonotes compress replace alignment(S) mgroups("\specialcell{Characteristics of attritors \\ N=903} " "\specialcell{Attritor characteristics \\ by treatment arm \\ N=318}" , pattern(1 0 0 0 1 0 0 0) prefix(\multicolumn{@span}{c}{) suffix(}) span erepeat(\cmidrule(lr){@span})) stats(`statnames', labels(`varlabels')) mtitle("\specialcell{In sample\\ Mean \\ N=585}" "\specialcell{Attritor\\ Mean \\ N=318}" "\specialcell{Diff}" "\emph{p}-val" "\specialcell{T \\ Mean \\ N=174}"   "\specialcell{C \\ mean \\ N=144}" "Diff" "\emph{p}-val")
+/*NOTE: The number of observations are in the headings of the output table but are moved manually to the bottom for ease of readability in the paper version*/
 
 *********************************
 ***Balance tables by child gender

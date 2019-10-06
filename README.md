@@ -5,9 +5,9 @@ Baranov, Bhalotra, Biroli, Maselko (2019)
 
 Authors: Victoria Baranov & Pietro Biroli
 
-Date: September 4, 2019
+Date: October 6, 2019
 
-Data and Code can be downloaded here: https://github.com/pietrobiroli/maternalDepression/ 
+Data and Code can be downloaded here: https://github.com/pietrobiroli/maternalDepression/
 
 ## How to replicate the results
 ### STEP 1:
@@ -54,7 +54,7 @@ The raw data for this project are confidential and not publically available, but
  output presented in the paper.
   - To obtain only a subset of the output, open THP_analysis.do and set the switches to 1 or 0 accordingly
   - To make the code run faster, open THP_analysis.do and change "global iterations" to a lower number (e.g.
- 10). This change will impact the p-values calculated with randomization inference and/or the stepdown procedure reported in the tables and in Figure 2.
+ 10). This change will impact the p-values calculated with randomization inference and/or the stepdown procedure reported in the tables and in Figure 2. It might also create errors in estimating the quantile treatment effects.
 
 
 ## Description of the code
@@ -81,7 +81,7 @@ This file merges the raw data and ensures that the publically available data con
 ### FOR REPLICATION:
 
 2. THP_analysis.do --  This file takes the clean data (from THP_cleandata.do) and runs the analysis for the paper.
-NB: The code can take several days to run to reproduce all the tables in the paper because of the randomization inference and stepdown procedures.
+NB: The code can take several days to run to reproduce all the tables in the paper because of the randomization inference and stepdown procedures. p-values in Tables 2-4-6-9 and confidence interval in Figure 2 do not fully replicate beacuse of inherent randomness in both randcmd and the stepdown procedure.
 
     * This file will use the following inputs
         * /dataClean/THP_clean.dta
@@ -106,6 +106,28 @@ NB: The code can take several days to run to reproduce all the tables in the pap
          * leebounds   (from https://www.stata-journal.com/article.html?article=st0364)
          * figures/coefficientPlot/coefplot_all.do
 
+    * Latex Packages needed to compile the output:
+         * siunitx
+         ```Latex
+         % siunitx
+         \usepackage{siunitx}
+         \sisetup{
+	          detect-mode,
+	          group-digits            = false,
+	          input-symbols           = ( ) [ ] - +,
+	          table-align-text-post   = false,
+	          input-signs             = ,
+         }
+         ```
+         * Add the following to the preamble
+         ```Latex
+         % Allow line breaks with \\ in specialcells
+         \newcommand{\specialcell}[2][c]{%
+	       \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}
+         }
+         ```
+
+
 ## Correspondence between code output and paper tables and figures
 Here below a crosswalk between the tables and figures in the final version of the paper and the section of the code that create them.
 
@@ -125,14 +147,14 @@ Here below a crosswalk between the tables and figures in the final version of th
 | Appendix Table A1 | `balance_tables'        | tables/attrition_balance.tex             |
 | Appendix Table A2 | `balance_tables'        | tables/baseline_balance _bygender.tex     |
 
-Note: Table 2 and 3 are created from the same file, and then manually separated
+Note 1: Table 2 and 3 are created from the same file, and then manually separated
+Note 2: p-values in Tables 2-4-6-9 and confidence interval in Figure 2 do not fully replicate beacuse of inherent randomness in both randcmd and the stepdown procedure. (Setting the seed is not enough to ensure deterministic results)
+Note 3: In order to compile these tables in Latex the `\specialcell{}` command is used in the headings, and we also use the packaage siunitx as a special column delimiter to indicate alignment at the decimal.
 
 
 
 
-
-
-## Correspondence for the Online Appendix Tables/Figures Referenced in Paper 
+## Correspondence for the Online Appendix Tables/Figures Referenced in Paper
 |                          |       Code section         |            Output name                         |
 |--------------------------|:--------------------------:|------------------------------------------------|
 | Online App Table B2-B5   | `sumtab_by_index'          | tables/c_sumstats*.tex                         |
@@ -149,4 +171,3 @@ Note: Table 2 and 3 are created from the same file, and then manually separated
 | Online App Table H26-H47 | `within_index_tables'      | tables/c_within_*.tex                          |
 | Online App Figure I3     | `density_graphs'           | figures/density_*.pdf                          |
 | Online App Figure I4     | `qte_graphs'               | figures/qte_*.pdf                              |
-
