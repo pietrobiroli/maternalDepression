@@ -108,24 +108,21 @@ NB: The code can take several days to run to reproduce all the tables in the pap
 
     * Latex Packages needed to compile the output:
          * siunitx
-         ```Latex
-         % siunitx
-         \usepackage{siunitx}
-         \sisetup{
-	          detect-mode,
-	          group-digits            = false,
-	          input-symbols           = ( ) [ ] - +,
-	          table-align-text-post   = false,
-	          input-signs             = ,
-         }
-         ```
+> 			 % siunitx
+>          \usepackage{siunitx}
+>          \sisetup{
+> 	          detect-mode,
+> 	          group-digits            = false,
+> 	          input-symbols           = ( ) [ ] - +,
+> 	          table-align-text-post   = false,
+> 	          input-signs             = ,
+>          }
+         
          * Add the following to the preamble
-         ```Latex
-         % Allow line breaks with \\ in specialcells
-         \newcommand{\specialcell}[2][c]{%
-	       \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}
-         }
-         ```
+>          % Allow line breaks with \\ in specialcells
+>          \newcommand{\specialcell}[2][c]{%
+> 	       \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}
+>          }
 
 
 ## Correspondence between code output and paper tables and figures
