@@ -1,7 +1,7 @@
 # Maternal Depression Data and Code
 This readmefile explains how to replicate the analysis in
 Baranov, Bhalotra, Biroli, Maselko (2019)
-"Maternal Depression, Women’s Empowerment, and Parental Investment: Evidence from a Randomized Control Trial"
+"Maternal Depression, Women’s Empowerment, and Parental Investment: Evidence from a Randomized Control Trial" https://www.aeaweb.org/articles?id=10.1257/aer.20180511
 
 Authors: Victoria Baranov & Pietro Biroli
 
